@@ -47,16 +47,18 @@
   color: #f0f0f0 !important;
 }
 
-
+css.social-links a {
+  color: #87CEEB;
+}
 
 /* Make the Social Links bar heading + links white */
 .social-links a span,
 .social-links a {
-  color: #ffffff !important;
+  color: #4b8beb !important;
 }
 
 .social-links a:hover {
-  color: #d5e9ff !important;
+  color: #1a17be !important;
 }
 
 main {

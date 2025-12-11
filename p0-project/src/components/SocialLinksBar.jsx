@@ -3,7 +3,7 @@ import { Card, Stack } from 'react-bootstrap';
 
 export default function SocialLinksBar({ className = '' }) {
   const links = [
-    { id: 'github', label: 'GitHub', href: '#', text: 'GitHub' },
+    { id: 'github', label: 'GitHub', href: 'https://github.com/JasonCarmichael4', text: 'GitHub' },
     {
       id: 'instagram',
       label: 'Instagram',
@@ -16,6 +16,7 @@ export default function SocialLinksBar({ className = '' }) {
       href: 'mailto:Jaseque999@gmail.com',
       text: 'Email',
     },
+
     { id: 'resume', label: 'Resume', href: '#', text: 'Resume (coming soon)' },
   ];
 
