@@ -16,8 +16,6 @@ export default function SocialLinksBar({ className = '' }) {
       href: 'mailto:Jaseque999@gmail.com',
       text: 'Email',
     },
-    { id: 'discord', label: 'Discord', href: '#', text: 'Discord' },
-    { id: 'steam', label: 'Steam', href: '#', text: 'Steam' },
     { id: 'resume', label: 'Resume', href: '#', text: 'Resume (coming soon)' },
   ];
 

@@ -6,9 +6,14 @@ import SocialLinksBar from './SocialLinksBar.jsx';
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
-      <ConstellationSection />
-      <SocialLinksBar className="mt-4" />
+        <HeroSection />
+
+        <ConstellationSection />
+
+        <div className="links-wrapper mt-4">
+            <SocialLinksBar />
+        </div>
+
     </>
   );
 }

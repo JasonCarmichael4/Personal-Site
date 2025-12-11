@@ -5,10 +5,11 @@ import SocialLinksBar from './SocialLinksBar.jsx';
 
 export default function ContactPage() {
   return (
-    <section aria-labelledby="contact-heading">
+    <section aria-labelledby="contact-heading" className="page-section">
       <h1 id="contact-heading" className="mb-3">
         Contact
       </h1>
+
       <Row className="g-4">
         <Col lg={7}>
           <ContactForm />

@@ -1,0 +1,28 @@
+.hero-wrapper {
+  width: 100%;
+  padding: 90px 0 70px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 2.75rem;
+  color: #ffffff;
+}
+
+.hero-subtitle {
+  font-weight: 500;
+}
+
+.hero-lead,
+.hero-desc {
+  color: #dbe8ff;
+  max-width: 600px;
+}
+
+.hero-card {
+  margin-top: 20px;
+  max-width: 330px;
+  width: 100%;
+  margin-inline: auto;
+}

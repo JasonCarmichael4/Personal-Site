@@ -1,18 +1,41 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
-import SiteNavbar from './SiteNavbar.jsx';
-import FooterEarth from './FooterEarth.jsx';
+import SiteNavbar from './SiteNavbar';
+import FooterEarth from './FooterEarth';
+
+function generateStars(n = 250) {
+  return [...Array(n)].map((_, i) => ({
+    id: i,
+    top: Math.random() * 100 + 'vh',
+    left: Math.random() * 100 + 'vw',
+    delay: Math.random() * 4 + 's'
+  }));
+}
 
 export default function Layout({ children }) {
+  const stars = generateStars();
+
   return (
-    <div className="app-root">
-      <div className="star-twinkles" aria-hidden="true"></div>
+    <>
+      {/* STARFIELD */}
+      <div className="star-twinkles">
+        {stars.map(s => (
+          <div
+            key={s.id}
+            className="star"
+            style={{
+              top: s.top,
+              left: s.left,
+              animationDelay: s.delay
+            }}
+          />
+        ))}
+      </div>
 
       <SiteNavbar />
-      <main className="flex-grow-1 py-4">
-        <Container>{children}</Container>
-      </main>
+
+      <main>{children}</main>
+
       <FooterEarth />
-    </div>
+    </>
   );
 }

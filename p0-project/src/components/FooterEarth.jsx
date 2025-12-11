@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import React, { useEffect, useState } from "react";
+import { Container } from "react-bootstrap";
+import { GiCow } from "react-icons/gi";
 
 const codeSnippets = [
-  { lang: 'Python', code: "print('hello, earth')" },
-  { lang: 'JavaScript', code: "console.log('hello, earth');" },
-  { lang: 'C++', code: 'std::cout << "hello, earth";' },
-  { lang: 'Java', code: 'System.out.println("hello, earth");' },
-  { lang: 'C', code: 'printf("hello, earth");' },
+  { lang: "Python", code: "print('hello, world')" },
+  { lang: "JavaScript", code: "console.log('hello, world');" },
+  { lang: "C++", code: "std::cout << \"hello, world\";" },
+  { lang: "Java", code: "System.out.println(\"hello, world\");" },
+  { lang: "C", code: "printf(\"hello, world\");" },
 ];
 
 export default function FooterEarth() {
   const [index, setIndex] = useState(0);
   const [animate, setAnimate] = useState(false);
 
-  // cycle through snippets
+  // rotate languages
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % codeSnippets.length);
@@ -21,7 +22,7 @@ export default function FooterEarth() {
     return () => clearInterval(interval);
   }, []);
 
-  // trigger scramble animation on change
+  // scramble effect
   useEffect(() => {
     setAnimate(true);
     const t = setTimeout(() => setAnimate(false), 400);
@@ -31,32 +32,30 @@ export default function FooterEarth() {
   const snippet = codeSnippets[index];
 
   return (
-    <footer className="footer-earth text-center text-light mt-auto">
-      <Container>
-        <div
-          className="earth-scene"
-          role="img"
-          aria-label="Illustration of Earth with a UFO beaming up a small figure."
-        >
-          <div className="ufo">
-            <div className="ufo-beam" />
-          </div>
-          <div className="earth-planet">
-            <div className="earth-landmass" />
-            <div className="abducted-figure" />
-          </div>
+    <footer className="footer-earth text-light">
+      <Container fluid className="p-0 position-relative">
+
+        {/* UFO */}
+        <div className="ufo">
+          <div className="ufo-top"></div>
         </div>
 
-        <div
-          className={
-            'alien-code mb-2 ' + (animate ? 'alien-code-change' : '')
-          }
-          aria-label={`Alien saying hello earth in ${snippet.lang}.`}
-        >
-          <span className="language-label">{snippet.lang}</span>
-          <span>{snippet.code}</span>
+        {/* Beam */}
+        <div className="ufo-beam"></div>
+
+        {/* Cow */}
+        <GiCow className="cow-icon" />
+
+        {/* Rotating speech bubble */}
+        <div className={"speech-bubble " + (animate ? "alien-code-change" : "")}>
+          {snippet.code}
         </div>
-        <small className="text-muted">&copy; 2025 Jason Carmichael</small>
+
+        {/* Ground layers */}
+        <div className="earth-green"></div>
+        <div className="earth-brown"></div>
+
+        <small className="footer-copy">&copy; 2025 Jason Carmichael</small>
       </Container>
     </footer>
   );

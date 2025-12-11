@@ -5,10 +5,11 @@ import SpecimenInfoSection from './SpecimenInfoSection.jsx';
 
 export default function AboutPage() {
   return (
-    <section aria-labelledby="about-heading">
+    <section aria-labelledby="about-heading" className="page-section">
       <h1 id="about-heading" className="mb-3">
         About Me
       </h1>
+
       <Row className="g-4">
         <Col lg={7}>
           <HobbiesSection />

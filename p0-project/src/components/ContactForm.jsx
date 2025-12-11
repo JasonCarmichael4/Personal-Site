@@ -9,8 +9,9 @@ export default function ContactForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    
     const subject = `Portfolio message from ${name || 'visitor'}`;
-    const lines = [
+    const body = [
       'Hi Jason,',
       '',
       `Name: ${name || 'Anonymous visitor'}`,
@@ -19,12 +20,19 @@ export default function ContactForm() {
       message || '(no message body provided)',
       '',
       '-- sent from your space portfolio',
-    ];
+    ].join('\n');
     const mailtoUrl = `mailto:Jaseque999@gmail.com?subject=${encodeURIComponent(
       subject
-    )}&body=${encodeURIComponent(lines.join('\n'))}`;
-
-    window.location.href = mailtoUrl;
+    )}&body=${encodeURIComponent(body)}`;
+    
+    // Create a visible link, click it, then remove it
+    const link = document.createElement('a');
+    link.href = mailtoUrl;
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
     setInfo(
       'Opening your email app… if nothing appears, you can email me at Jaseque999@gmail.com.'
     );
@@ -38,13 +46,11 @@ export default function ContactForm() {
           This form will open your email client and pre-fill a message to me at{' '}
           <strong>Jaseque999@gmail.com</strong>.
         </p>
-
         {info && (
           <Alert variant="info" className="py-2">
             {info}
           </Alert>
         )}
-
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="contact-name">
             <Form.Label>Your name</Form.Label>
@@ -54,7 +60,6 @@ export default function ContactForm() {
               onChange={(e) => setName(e.target.value)}
             />
           </Form.Group>
-
           <Form.Group className="mb-3" controlId="contact-email">
             <Form.Label>Your email</Form.Label>
             <Form.Control
@@ -63,7 +68,6 @@ export default function ContactForm() {
               onChange={(e) => setReplyEmail(e.target.value)}
             />
           </Form.Group>
-
           <Form.Group className="mb-3" controlId="contact-message">
             <Form.Label>Message</Form.Label>
             <Form.Control
@@ -73,7 +77,6 @@ export default function ContactForm() {
               onChange={(e) => setMessage(e.target.value)}
             />
           </Form.Group>
-
           <Button type="submit" variant="primary">
             Send Email
           </Button>

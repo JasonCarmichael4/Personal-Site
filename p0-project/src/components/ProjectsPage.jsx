@@ -1,14 +1,15 @@
 import React from 'react';
 import { Row, Col, Card } from 'react-bootstrap';
 import ProjectsSolarSystem from './ProjectsSolarSystem.jsx';
-import WorkHistoryRocket from './WorkHistoryRocket.jsx';
+import WorkHistory from './WorkHistory.jsx';
 
 export default function ProjectsPage() {
   return (
-    <section aria-labelledby="projects-heading">
+    <section aria-labelledby="projects-heading" className="page-section">
       <h1 id="projects-heading" className="mb-3">
         Projects &amp; Tech Stack
       </h1>
+
       <Row className="g-4">
         <Col lg={6}>
           <Card className="section-card h-100">
@@ -25,17 +26,18 @@ export default function ProjectsPage() {
             </Card.Body>
           </Card>
         </Col>
+
         <Col lg={6}>
           <Card className="section-card h-100">
             <Card.Body>
               <Card.Title as="h2" className="h4 mb-3">
-                Rocket Work History
+                Work History
               </Card.Title>
               <Card.Text>
                 A small rocket hops between planets representing phases in my
                 developer journey.
               </Card.Text>
-              <WorkHistoryRocket />
+              <WorkHistory/>
             </Card.Body>
           </Card>
         </Col>
